@@ -1,0 +1,32 @@
+.btn {
+  border-width: 2px;
+  border-style: solid;
+  padding: 6px 12px;
+  text-decoration: none;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+
+  &:hover {
+    text-decoration: none;
+  }
+
+  &.btn-primary {
+    color: @color-white;
+    background: @color-lila;
+    border-color: @color-pink;
+
+    &:hover {
+      border-color: @color-rose;
+    }
+  }
+
+  &.btn-lg {
+    padding: 12px 25px;
+    margin-bottom: 25px;
+  }
+
+  &.btn-block {
+    display: block;
+    text-align: center;
+  }
+}

@@ -1,0 +1,101 @@
+@import url(http://fonts.googleapis.com/css?family=Lobster|Roboto+Slab:400,700);
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  min-width: 100%;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  min-height: 100%;
+  height: 100%;
+  overflow-y: auto;
+  margin: 0;
+  padding: 0;
+}
+#wrapper {
+  width: 100%;
+  height: 100%;
+  background: url(../img/intro/background.jpg);
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 400;
+  font-family: 'Roboto Slab', serif;
+}
+ul.list-unstyled {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+ul.list-unstyled li {
+  list-style: none;
+}
+h1 {
+  margin: 0;
+  padding: 0;
+  font-family: 'Lobster', cursive;
+  font-size: 3em;
+  font-weight: 400;
+  text-shadow: 5px 5px 5px #820082;
+  margin-bottom: 100px;
+}
+.text-center {
+  text-align: center;
+}
+.btn {
+  border-width: 2px;
+  border-style: solid;
+  padding: 6px 12px;
+  text-decoration: none;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+.btn:hover {
+  text-decoration: none;
+}
+.btn.btn-primary {
+  color: #ffffff;
+  background: #3e033d;
+  border-color: #820082;
+}
+.btn.btn-primary:hover {
+  border-color: #ff1f59;
+}
+.btn.btn-lg {
+  padding: 12px 25px;
+  margin-bottom: 25px;
+}
+.btn.btn-block {
+  display: block;
+  text-align: center;
+}
+#navigation {
+  width: 20%;
+  background: rgba(0, 0, 16, 0.5);
+  padding: 25px;
+  height: 100%;
+  float: left;
+}
+#stage {
+  width: 80%;
+  height: 100%;
+  float: right;
+  position: relative;
+}
+#stage #maincharacter {
+  height: 432px;
+  width: 432px;
+  position: absolute;
+  bottom: 400px;
+  left: 50%;
+  margin-left: -216px;
+  background-image: url(../img/maincharacter/maincharacter_animation_naked.png);
+}
+#stage #black-hole {
+  position: absolute;
+  bottom: 0px;
+  width: 750px;
+  left: 50%;
+  margin-left: -375px;
+}
