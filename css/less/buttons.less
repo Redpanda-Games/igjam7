@@ -8,6 +8,7 @@
 
   &:hover {
     text-decoration: none;
+    cursor: pointer;
   }
 
   &.btn-primary {
@@ -15,7 +16,8 @@
     background: @color-lila;
     border-color: @color-pink;
 
-    &:hover {
+    &:hover,
+    &.active {
       border-color: @color-rose;
     }
   }
