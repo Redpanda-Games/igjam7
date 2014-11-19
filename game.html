@@ -15,7 +15,6 @@
 
     <div id="stage"></div>
 
-
     <div id="pause-menu">
         <div id="holder">
             <h1 class="text-center"><a href="/">The impossible Timefall</a></h1>
@@ -23,6 +22,7 @@
             <ul class="list-unstyled">
                 <li><a href="game.html" class="btn btn-block btn-primary btn-lg">Restart</a></li>
                 <li><span id="resume" class="btn btn-block btn-primary btn-lg">Resume</span></li>
+                <li><span id="mute" class="btn btn-block btn-primary btn-lg">Sound off</span></li>
                 <li><a href="/" class="btn btn-block btn-primary btn-lg">Exit</a></li>
             </ul>
 
@@ -38,11 +38,16 @@
         </div>
     </div>
 
+    <div id="game-over">
+        <img src="img/cutscenes/game_over.jpg" />
+        <a href="game.html" class="btn btn-block btn-primary btn-lg">Restart</a>
+    </div>
+
 </section>
 
 <script type="text/javascript" src="js/libs/jquery-1.11.1.min.js"></script>
 <script type="text/javascript" src="js/libs/crafty.min.js"></script>
-<script type="text/javascript" src="js/game.js"></script>
+<script type="text/javascript" src="js/game/init.js"></script>
 
 </body>
 </html>
