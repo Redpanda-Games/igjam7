@@ -9,9 +9,9 @@
 
 **Design**
 
-* Eilin
-* Maxim
-* Kjell
+* Eilin Pham
+* Maxim Simonenko
+* Kjell Nehring
 
 **Sound**
 
