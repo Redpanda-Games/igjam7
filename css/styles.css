@@ -1,0 +1,254 @@
+@import url(http://fonts.googleapis.com/css?family=Lobster|Roboto+Slab:400,700);
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  min-width: 100%;
+  width: 100%;
+  max-width: 100%;
+  min-height: 100%;
+  height: 100%;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
+#wrapper {
+  width: 100%;
+  height: 100%;
+  background: #000010;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 400;
+  font-family: 'Roboto Slab', serif;
+}
+#wrapper #ajax-holder {
+  width: 80%;
+  height: 100%;
+  float: right;
+}
+ul.list-unstyled {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+ul.list-unstyled li {
+  list-style: none;
+}
+.clearfix:before,
+.clearfix:after {
+  content: "";
+  clear: both;
+  display: block;
+  visibility: hidden;
+  height: 0px;
+}
+h1 {
+  margin: 0;
+  padding: 0;
+  font-family: 'Lobster', cursive;
+  font-size: 3em;
+  font-weight: 400;
+  text-shadow: 5px 5px 5px #820082;
+  margin-bottom: 100px;
+}
+h1 a {
+  color: #ffffff;
+  text-decoration: none;
+}
+h1 a:hover {
+  color: #ff1f59;
+  text-decoration: none;
+}
+h2 {
+  margin: 0;
+  padding: 0;
+  font-family: 'Lobster', cursive;
+  font-size: 2em;
+  font-weight: 400;
+  text-shadow: 5px 5px 5px #820082;
+  margin-bottom: 25px;
+}
+h3 {
+  margin: 0;
+  padding: 0;
+  font-family: 'Lobster', cursive;
+  font-size: 1.5em;
+  font-weight: 400;
+  text-shadow: 2px 2px 5px #820082;
+  margin-bottom: 8px;
+}
+p {
+  margin: 0;
+  padding: 0;
+  margin-bottom: 16px;
+}
+.text-center {
+  text-align: center;
+}
+.btn {
+  border-width: 2px;
+  border-style: solid;
+  padding: 6px 12px;
+  text-decoration: none;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+.btn:hover {
+  text-decoration: none;
+  cursor: pointer;
+}
+.btn.btn-primary {
+  color: #ffffff;
+  background: #3e033d;
+  border-color: #820082;
+}
+.btn.btn-primary:hover,
+.btn.btn-primary.active {
+  border-color: #ff1f59;
+}
+.btn.btn-lg {
+  padding: 12px 25px;
+  margin-bottom: 25px;
+}
+.btn.btn-block {
+  display: block;
+  text-align: center;
+}
+#mainmenu #wrapper {
+  background: url(../img/intro/background.jpg);
+}
+#mainmenu #wrapper #navigation {
+  width: 20%;
+  background: rgba(0, 0, 16, 0.5);
+  padding: 25px;
+  height: 100%;
+  float: left;
+}
+#mainmenu #wrapper #stage {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+#mainmenu #wrapper #stage #maincharacter {
+  height: 134px;
+  width: 250px;
+  position: absolute;
+  bottom: 1500px;
+  left: 50%;
+  margin-left: -125px;
+  background-image: url(../img/maincharacter/maincharacter_animation_naked.png);
+}
+#mainmenu #wrapper #stage #black-hole {
+  position: absolute;
+  bottom: 0px;
+  width: 750px;
+  left: 50%;
+  margin-left: -375px;
+}
+#game #wrapper {
+  background: #00ccff;
+  background: url(../img/intro/background.jpg);
+}
+#game #stage {
+  width: 100%;
+  height: 100%;
+}
+#game #pause-menu {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 5000;
+  background: rgba(0, 0, 16, 0.5);
+}
+#game #pause-menu.paused {
+  display: block;
+}
+#game #pause-menu #holder {
+  position: absolute;
+  top: 100px;
+  left: 50%;
+  margin-left: -10%;
+  width: 20%;
+}
+#game #game-over {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+}
+#game #game-over img {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+#game #game-over .btn.btn-block {
+  position: absolute;
+  bottom: 50px;
+  left: 50%;
+  margin-left: -125px;
+  width: 250px;
+}
+#game #game-over.dead {
+  display: block;
+}
+#credits #wrapper {
+  background: url(../img/credits/background.jpg);
+}
+#credits #wrapper #navigation {
+  width: 20%;
+  background: rgba(0, 0, 16, 0.5);
+  padding: 25px;
+  height: 100%;
+  float: left;
+}
+#credits #wrapper #stage {
+  width: 80%;
+  height: 100%;
+  float: right;
+  position: relative;
+}
+#credits #wrapper #stage #text {
+  float: left;
+  padding: 25px;
+  width: 50%;
+}
+#credits #wrapper #stage #text h2 {
+  margin-bottom: 0;
+}
+#credits #wrapper #stage #text h3 {
+  margin-top: 25px;
+}
+#credits #wrapper #stage #text .half {
+  display: block;
+  float: left;
+  width: 50%;
+  padding: 0 15px;
+}
+#credits #wrapper #stage #text p {
+  text-shadow: 1px 1px 1px #820082;
+}
+#credits #wrapper #stage #text p strong {
+  font-size: 1.25em;
+}
+#credits #wrapper #stage #team-faces {
+  float: right;
+  width: 50%;
+  height: 100%;
+  text-align: center;
+  padding: 25px;
+}
+#credits #wrapper #stage #team-faces img {
+  max-width: 100%;
+  max-height: 100%;
+}
+#credits .spawnedItem {
+  position: absolute;
+  bottom: -600px;
+}

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head lang="de">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="css/styles.css">
+
+    <title>The impossible Timefall</title>
+</head>
+<body id="game">
+
+<section id="wrapper">
+
+    <div id="stage"></div>
+
+    <div id="pause-menu">
+        <div id="holder">
+            <h1 class="text-center"><a href="/">The impossible Timefall</a></h1>
+
+            <ul class="list-unstyled">
+                <li><a href="game.html" class="btn btn-block btn-primary btn-lg">Restart</a></li>
+                <li><span id="resume" class="btn btn-block btn-primary btn-lg">Resume</span></li>
+                <li><span id="mute" class="btn btn-block btn-primary btn-lg">Sound off</span></li>
+                <li><a href="/" class="btn btn-block btn-primary btn-lg">Exit</a></li>
+            </ul>
+
+            <p class="text-center">
+                &copy; 2014 by Powerful Panda Productions
+                <br/>
+                <small>
+                    created @ InnoGames GameJam #7
+                    <br/>
+                    The impossible Timefall - v 1.0
+                </small>
+            </p>
+        </div>
+    </div>
+
+    <div id="game-over">
+        <img src="img/cutscenes/game_over.jpg" />
+        <a href="game.html" class="btn btn-block btn-primary btn-lg">Restart</a>
+    </div>
+
+</section>
+
+<script type="text/javascript" src="js/libs/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="js/libs/crafty.min.js"></script>
+<script type="text/javascript" src="js/game/init.js"></script>
+
+</body>
+</html>

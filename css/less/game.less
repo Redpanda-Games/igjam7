@@ -1,0 +1,62 @@
+#game {
+  #wrapper {
+    background: #00ccff;
+    background: url(../img/intro/background.jpg);
+  }
+
+  #stage {
+    width: 100%;
+    height: 100%;
+  }
+
+  #pause-menu {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 5000;
+    background: fade(@color-background, 50%);
+
+    &.paused {
+      display: block;
+    }
+
+    #holder {
+      position: absolute;
+      top: 100px;
+      left: 50%;
+      margin-left: -10%;
+      width: 20%;
+    }
+  }
+
+  #game-over {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+
+    img {
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+    .btn.btn-block {
+      position: absolute;
+      bottom: 50px;
+      left: 50%;
+      margin-left: -125px;
+      width: 250px;
+    }
+
+    &.dead {
+      display: block;
+    }
+  }
+}

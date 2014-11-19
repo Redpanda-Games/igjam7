@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head lang="de">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="css/styles.css">
+
+    <title>The impossible Timefall</title>
+</head>
+<body id="mainmenu">
+
+<section id="wrapper">
+
+    <nav id="navigation">
+        <h1 class="text-center"><a href="/">The impossible Timefall</a></h1>
+
+        <ul class="list-unstyled">
+            <li><a href="game.html" class="btn btn-block btn-primary btn-lg">Start</a></li>
+            <li><a href="#" class="btn btn-block btn-primary btn-lg">Highscore</a></li>
+            <li><a href="#" class="btn btn-block btn-primary btn-lg">Optionen</a></li>
+            <li><a href="credits.html" class="btn btn-block btn-primary btn-lg ajax" data-id="credits">Credits</a></li>
+        </ul>
+
+        <p class="text-center">
+            &copy; 2014 by Powerful Panda Productions
+            <br/>
+            <small>
+                created @ InnoGames GameJam #7
+                <br/>
+                The impossible Timefall - v 1.0
+            </small>
+        </p>
+    </nav>
+
+    <div id="ajax-holder">
+        <div id="stage">
+            <div id="maincharacter"></div>
+            <img src="img/intro/black_hole.png" id="black-hole" />
+        </div>
+    </div>
+
+</section>
+
+<audio autoplay loop>
+    <source src="sound/Theme.mp3" type="audio/mpeg">
+</audio>
+
+<script type="text/javascript" src="js/libs/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="js/libs/jquery.animateSprite.min.js"></script>
+<script type="text/javascript" src="js/mainmenu.js"></script>
+<script type="text/javascript" src="js/credits.js"></script>
+
+</body>
+</html>

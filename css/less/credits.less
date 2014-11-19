@@ -1,0 +1,67 @@
+#credits {
+  #wrapper {
+    background: url(../img/credits/background.jpg);
+
+    #navigation {
+      width: 20%;
+      background: fade(@color-background, 50%);
+      padding: 25px;
+      height: 100%;
+      float: left;
+    }
+
+    #stage {
+      width: 80%;
+      height: 100%;
+      float: right;
+      position: relative;
+
+      #text {
+        float: left;
+        padding: 25px;
+        width: 50%;
+
+        h2 {
+          margin-bottom: 0;
+        }
+
+        h3 {
+          margin-top: 25px;
+        }
+
+        .half {
+          display: block;
+          float: left;
+          width: 50%;
+          padding: 0 15px;
+        }
+
+        p {
+          text-shadow: 1px 1px 1px @color-pink;
+
+          strong {
+            font-size: 1.25em;
+          }
+        }
+      }
+
+      #team-faces {
+        float: right;
+        width: 50%;
+        height: 100%;
+        text-align: center;
+        padding: 25px;
+
+        img {
+          max-width: 100%;
+          max-height: 100%;
+        }
+      }
+    }
+  }
+
+  .spawnedItem {
+    position: absolute;
+    bottom: -600px;
+  }
+}
