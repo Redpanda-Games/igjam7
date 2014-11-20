@@ -458,7 +458,7 @@ jQuery(window).on('load', function() {
         objectLifes: 1,
         bossSpawn: true,
         bossSpawned: false,
-        bossSpawnRate: 10,
+        bossSpawnRate: 90,
         bossLifes: 5,
 
         audioMuted: getCookie('audioMuted'),
