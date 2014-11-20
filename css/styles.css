@@ -35,6 +35,17 @@ ul.list-unstyled {
 ul.list-unstyled li {
   list-style: none;
 }
+a,
+a:focus,
+a:active {
+  color: #820082;
+  text-decoration: none;
+}
+a:hover,
+a:focus:hover,
+a:active:hover {
+  color: #ff1f59;
+}
 .clearfix:before,
 .clearfix:after {
   content: "";
