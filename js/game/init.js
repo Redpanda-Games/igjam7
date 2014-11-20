@@ -8,6 +8,10 @@ jQuery(window).on('load', function() {
         }
     });
 
+    if(getCookie('audioMuted')) {
+        jQuery('#mute').addClass('active').text('Sound on');
+    }
+
     jQuery('#mute').on('click', function() {
         var $this = jQuery(this);
         $this.toggleClass('active');
@@ -18,7 +22,30 @@ jQuery(window).on('load', function() {
             titf.settings.audioMuted = false;
             $this.text('Sound off');
         }
+        if(titf.client.cookieEnabled) {
+            setCookie('audioMuted', titf.settings.audioMuted, 28);
+        }
     });
+
+    function setCookie(cname, cvalue, exdays) {
+        var d = new Date();
+        d.setTime(d.getTime() + (exdays*24*60*60*1000));
+        var expires = "expires="+d.toUTCString();
+        document.cookie = cname + "=" + cvalue + "; " + expires;
+    }
+
+    function getCookie(cname) {
+        var name = cname + "=";
+        var ca = document.cookie.split(';');
+        for(var i=0; i<ca.length; i++) {
+            var c = ca[i];
+            while (c.charAt(0)==' ') c = c.substring(1);
+            if (c.indexOf(name) != -1) {
+                return c.substring(name.length, c.length);
+            }
+        }
+        return false;
+    }
 
     var titf = new Object();
 
@@ -101,19 +128,17 @@ jQuery(window).on('load', function() {
                             .image(titf.settings.imagePath + enemyData[0] + 'green' + titf.settings.imageType);
                     }
                     if(i % Math.floor(spawnRate * 1.5) == 0) {
-                        console.log('Enemy2 spawned');
                         if(Math.random() > 0.5) {
-                            var enemy = new Crafty.e('Enemy2')
+                            new Crafty.e('Enemy2')
                                 .attr({x: -250, y: Math.floor((Math.random() * (titf.client.height/3*2))), w: enemyData[1]*1, h: enemyData[2]*1})
                                 .bind('EnterFrame', this.moveRight)
                                 .image(titf.settings.imagePath + enemyData[0] + 'blue' + titf.settings.imageType);
                         } else {
-                            var enemy = new Crafty.e('Enemy2')
+                            new Crafty.e('Enemy2')
                                 .attr({x: titf.client.width, y: Math.floor((Math.random() * (titf.client.height/3*2))), w: enemyData[1]*1, h: enemyData[2]*1})
                                 .bind('EnterFrame', this.moveLeft)
                                 .image(titf.settings.imagePath + enemyData[0] + 'blue' + titf.settings.imageType);
                         }
-                        console.log(enemy);
                     }
                     if(i % (spawnRate * 2) == 0) {
                         new Crafty.e('Enemy3')
@@ -136,7 +161,7 @@ jQuery(window).on('load', function() {
                         titf.boss.life = titf.settings.bossLifes + Math.floor(Math.random() * titf.game.level);
                         titf.settings.bossLifes = titf.boss.life;
                         titf.f.game.clearStage();
-                        bossData = titf.settings.bossFiles[rand].split('|');
+                        var bossData = titf.settings.bossFiles[rand].split('|');
                         titf.boss.type = bossData[0];
                         titf.boss.e = Crafty.e(bossData[0]);
                         if(titf.player.e.x >= titf.client.width/2) {
@@ -165,7 +190,7 @@ jQuery(window).on('load', function() {
                 titf.player.life--;
                 titf.f.game.updateHUD(titf.game.seconds);
                 titf.f.game.clearStage();
-                titf.player.e.attr({x: (titf.client.width/2)-125, y: 25})
+                titf.player.e.attr({x: (titf.client.width/2)-125, y: 25});
                 if(titf.player.life <= 0) {
                     titf.game.end();
                 }
@@ -268,7 +293,7 @@ jQuery(window).on('load', function() {
                 },
                 moveRight: function() {
                     this.x += 4;
-                    if(this.x >= clientWidth) {
+                    if(this.x >= titf.client.width) {
                         this.destroy();
                         titf.f.player.addScore(30);
                     }
@@ -297,7 +322,6 @@ jQuery(window).on('load', function() {
                     }
                 }
             }),
-
             ironman: new Crafty.c('Ironman', {
                 init: function() {
                     this.requires('2D, DOM, Solid, Collision, SpriteAnimation, IronmanSprite')
@@ -332,7 +356,6 @@ jQuery(window).on('load', function() {
                     }
                 }
             }),
-
             panda: new Crafty.c('Panda', {
                 init: function() {
                     this.requires('2D, DOM, Solid, Collision, SpriteAnimation, PandaSprite')
@@ -367,7 +390,6 @@ jQuery(window).on('load', function() {
                     }
                 }
             }),
-
             pony: new Crafty.c('Pony', {
                 init: function() {
                     this.requires('2D, DOM, Solid, Collision, SpriteAnimation, PonySprite')
@@ -406,7 +428,7 @@ jQuery(window).on('load', function() {
                 }
             })
         }
-    }
+    };
 
     titf.client = {
         width: jQuery(document).width(),
@@ -426,7 +448,7 @@ jQuery(window).on('load', function() {
         bossSpawnRate: 90,
         bossLifes: 5,
 
-        audioMuted: false,
+        audioMuted: getCookie('audioMuted'),
 
         imagePath: 'img/',
         imageType: '.png',
@@ -567,9 +589,6 @@ jQuery(window).on('load', function() {
                 }
             }, 1000 );
         },
-        pause: function() {
-
-        },
         end: function() {
             titf.player.e.destroy();
             titf.settings.objectSpawn = false;
@@ -581,7 +600,5 @@ jQuery(window).on('load', function() {
         }
     };
 
-    console.log(titf);
     titf.game.start();
 });
-
