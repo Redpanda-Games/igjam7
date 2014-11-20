@@ -162,12 +162,18 @@ jQuery(window).on('load', function() {
                         titf.settings.bossLifes = titf.boss.life;
                         titf.f.game.clearStage();
                         var bossData = titf.settings.bossFiles[rand].split('|');
+                        var backgroundData = titf.settings.backgroundFiles[bossData[0].toLowerCase()].split('|');
                         titf.boss.type = bossData[0];
                         titf.boss.e = Crafty.e(bossData[0]);
+                        titf.boss.b
+                            .attr({w: (backgroundData[0]*1), h: (backgroundData[1]*1)})
+                            .image(titf.settings.imagePath + bossData[0].toLowerCase() + '/background' + titf.settings.imageType);
                         if(titf.player.e.x >= titf.client.width/2) {
                             titf.boss.e.attr({x: 25});
+                            titf.boss.b.attr({x: 25});
                         } else {
-                            titf.boss.e.attr({x: titf.client.width-bossData[1]-25});
+                            titf.boss.e.attr({x: titf.client.width - bossData[1] - 25});
+                            titf.boss.b.attr({x: titf.client.width - backgroundData[0] - 25});
                         }
 
                         titf.texts.boss.text(bossData[0] + ': ' + titf.boss.life + ' / ' + titf.settings.bossLifes + ' Leben');
@@ -203,6 +209,7 @@ jQuery(window).on('load', function() {
                 if(titf.boss.life <= 0) {
                     Crafty.audio.stop();
                     titf.boss.e.destroy();
+                    titf.boss.b.image('');
                     titf.f.player.addScore(250);
                     titf.settings.enemySpawn = true;
                     titf.settings.bossSpawned = false;
@@ -243,6 +250,12 @@ jQuery(window).on('load', function() {
         },
 
         entities: {
+            background: new Crafty.c('Background', {
+                init: function() {
+                    this.requires('2D, DOM, Image')
+                        .attr({y: 50});
+                }
+            }),
             object: new Crafty.c('Object', {
                 init: function() {
                     this.requires('2D, DOM, Image, Solid, Collision').attr({y: titf.client.height}).bind('EnterFrame', this.moveUp)
@@ -445,7 +458,7 @@ jQuery(window).on('load', function() {
         objectLifes: 1,
         bossSpawn: true,
         bossSpawned: false,
-        bossSpawnRate: 90,
+        bossSpawnRate: 10,
         bossLifes: 5,
 
         audioMuted: getCookie('audioMuted'),
@@ -471,6 +484,11 @@ jQuery(window).on('load', function() {
             'Panda|415',
             'Pony|460'
         ),
+        backgroundFiles: {
+            ironman: '405|700',
+            panda: '500|558',
+            pony: '474|700'
+        },
 
         audioPath: 'sound/',
         audioType: '.mp3',
@@ -538,7 +556,8 @@ jQuery(window).on('load', function() {
         life: 5,
         horizontal: '',
         vertical: '',
-        e: {}
+        e: {},
+        b: {}
     };
 
     titf.texts = {
@@ -566,6 +585,8 @@ jQuery(window).on('load', function() {
                     }
                 }
             });
+
+            titf.boss.b = Crafty.e('Background');
 
             titf.texts.time = new Crafty.e('HudText').attr({y: 25}).text('0:00').textColor('#ffffff');
             titf.texts.level = new Crafty.e('HudText').attr({y: 50}).text('Level 1').textColor('#ffffff');
